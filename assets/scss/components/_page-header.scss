@@ -1,0 +1,53 @@
+.queryy-page-header {}
+
+.queryy-page-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.queryy-page-header__text {
+  position: relative;
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: 50%;
+}
+
+.queryy-page-header__cta {
+  height: 6rem;
+  flex-basis: 35rem;
+  flex-grow: 1;
+}
+
+.queryy-page-title-en {
+  font-family: $Lato;
+  font-weight: 900;
+  font-size: 6rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  @include sp {
+    font-size: 3.2rem;
+  }
+}
+
+.queryy-page-title-ja {
+  margin-block-start: 3rem;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+  em {
+    color: $color-blue;
+    font-style: normal;
+  }
+}
+
+.queryy-page-desc {
+  margin-block-start: 2rem;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+}

@@ -1,0 +1,8 @@
+// hover可能なデバイスのみに適用
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}

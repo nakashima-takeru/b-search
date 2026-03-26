@@ -1,0 +1,72 @@
+/*--------------------------------
+category
+--------------------------------*/
+.label-category {
+  display: inline-grid;
+  padding: 0.5rem 2.5rem;
+  font-size: $font16;
+  line-height: 2.1;
+  color: $color-blue;
+  letter-spacing: 0.07em;
+  background-color: #ebf2fa;
+  border-radius: 8rem;
+  transition: color 0.4s cubic-bezier(0.26, 0.16, 0.1, 1),
+    background-color 0.4s cubic-bezier(0.26, 0.16, 0.1, 1);
+
+  @include sp {
+    padding: 0.2rem 2rem 0.3rem;
+    font-size: 1.4rem;
+  }
+
+  @include hover {
+    color: $color-white;
+    background-color: $color-blue;
+  }
+}
+
+.is-active .label-category {
+  color: $color-white;
+  background-color: $color-blue;
+}
+
+.label-category-small {
+  padding-block: 0.6rem;
+  padding-inline: 1.5rem;
+  border: 0.1rem solid $color-blue;
+  border-radius: 8rem;
+  color: $color-blue;
+  font-size: 1.2rem;
+  font-family: $Noto-sans-jp;
+  line-height: 1.5;
+  letter-spacing: var(--lts);
+  text-align: center;
+}
+
+/*--------------------------------
+tag
+--------------------------------*/
+.label-tag {
+  display: inline-grid;
+  padding: 0.8rem 1.88rem;
+  font-size: $font13;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  border: solid 1px $color-white;
+  border-radius: 8rem;
+
+  @include sp {
+    padding: 0.3rem 2rem;
+    font-size: 1.3rem;
+    line-height: 2.1;
+  }
+
+  &[data-color='blue'] {
+    color: $color-blue;
+    border: solid 1px $color-blue;
+  }
+
+  &[data-color='white'] {
+    color: $color-white;
+    border: solid 1px $color-white;
+  }
+}

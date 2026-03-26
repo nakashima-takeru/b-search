@@ -1,0 +1,136 @@
+@import '../mixin/_mediaquery';
+@import '../mixin/_hover';
+@import '../base/variables';
+@import '../base/fonts';
+@import '../mixin/_line-clamp';
+@import '../mixin/_vw';
+
+/*====================================================================
+メディアトップ
+====================================================================*/
+
+.queryy-pickup {
+  margin-block-start: 1.5rem;
+  display: flex;
+  justify-content: center;
+  @include sp {
+    margin-block-start: 3rem;
+  }
+}
+
+.queryy-pickup__slider {
+  width: 100%;
+}
+
+.queryy-pickup__slider-inner {
+  position: relative;
+}
+
+.queryy-pickup__slider-body {
+  margin-inline: calc(50% - 50vw);
+}
+
+.queryy-pickup__slider-btns {
+  width: 91%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  pointer-events: none;
+  z-index: 50;
+  @include tab {
+    width: 96%;
+  }
+  @include sp {
+    display: none;
+  }
+}
+
+.queryy-pickup__slide {
+  width: 64.7%;
+  display: block grid;
+  align-items: center;
+  @include sp {
+    width: calc(100% - 3rem);
+    min-height: auto;
+  }
+  &.is-prev,
+  &.is-next {
+    & > .media-carousel.pc {
+      transition: unset;
+      scale: 0.75;
+      @include tab {
+        scale: 1;
+      }
+    }
+  }
+  &.is-prev {
+    & > .media-carousel.pc {
+      transform-origin: right;
+    }
+  }
+  &.is-next {
+    & > .media-carousel.pc {
+      transform-origin: left;
+    }
+  }
+  & > .media-carousel.pc {
+      transition: all 0.2s ease-out;
+  }
+}
+
+.queryy-pickup__slider-pagination {
+  display: none;
+  margin-block-start: 2rem;
+  @include sp {
+    display: flex;
+  }
+}
+
+.queryy-latest {
+  margin-block-start: 8rem;
+}
+
+.queryy-latest__wrapper {
+  & > * + * {
+    margin-block-start: 8rem;
+    @include sp {
+      margin-block-start: 6rem;
+    }
+  }
+}
+
+.queryy-latest__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.queryy-latest__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.queryy-category-entries {
+  margin-block: 6rem 4rem;
+}
+
+.queryy-top-recommend {
+  padding-block: 4rem;
+}
+
+.queryy-top-tag-list {
+  padding-block: 6rem;
+  display: flex;
+  justify-content: center;
+  padding-inline: 4rem;
+  @include sp {
+    padding-inline: 1.5rem;
+    display: none;
+  }
+}

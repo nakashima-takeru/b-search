@@ -1,0 +1,37 @@
+@import '../base/variables';
+@import '../mixin/_hover';
+@import '../mixin/_mediaquery';
+
+.writer-item__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include hover {
+    .writer-item__thumbnail img {
+      scale: 1.07;
+    }
+  }
+}
+
+.writer-item__thumbnail {
+  width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    transition: scale var(--trs-hover);
+  }
+}
+
+.writer-item__name {
+  margin-block-start: 2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.7;
+  letter-spacing: var(--lts);
+}
+
+.writer-item__position {
+  margin-block-start: 0.5rem;
+  font-size: 1.4rem;
+  letter-spacing: var(--lts);
+}

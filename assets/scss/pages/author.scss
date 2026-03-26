@@ -1,0 +1,38 @@
+@import '../mixin/_mediaquery';
+@import '../components/writer-item';
+
+.author-entries {
+  padding-block-end: 20rem;
+  @include sp {
+    padding-block-end: 12rem;
+  }
+}
+
+.author-entries__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.author-writer-slider-wrapper {
+  padding-block: 13rem;
+  background-color: $bg-white;
+  @include sp {
+    padding-block: 10rem 5rem;
+  }
+}
+
+.author-latest-entries-wrapper {
+  padding-block: 18rem 8rem;
+  @include sp {
+    padding-block: 10rem 5rem;
+  }
+}
+
+.author-ranking-slider-wrapper {
+  padding-block: 15rem 10rem;
+  background-color: $bg-white;
+  @include sp {
+    padding-block: 10rem 2rem;
+  }
+}

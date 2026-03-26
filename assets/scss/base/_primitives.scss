@@ -1,0 +1,128 @@
+.stack10 {
+  & > * + * {
+    margin-block-start: 1rem;
+  }
+}
+
+.stack15 {
+  & > * + * {
+    margin-block-start: 1.5rem;
+  }
+}
+
+.stack20 {
+  & > * + * {
+    margin-block-start: 2rem;
+  }
+}
+
+.stack30 {
+  & > * + * {
+    margin-block-start: 3rem;
+  }
+}
+
+.stack40 {
+  & > * + * {
+    margin-block-start: 4rem;
+  }
+}
+
+.stack50 {
+  & > * + * {
+    margin-block-start: 5rem;
+  }
+}
+
+.stack60 {
+  & > * + * {
+    margin-block-start: 6rem;
+  }
+}
+
+.stack80 {
+  & > * + * {
+    margin-block-start: 8rem;
+  }
+}
+
+.stack100 {
+  & > * + * {
+    margin-block-start: 10rem;
+  }
+}
+
+.stack120 {
+  & > * + * {
+    margin-block-start: 12rem;
+  }
+}
+
+.stack150 {
+  & > * + * {
+    margin-block-start: 15rem;
+  }
+}
+
+.stack200 {
+  & > * + * {
+    margin-block-start: 20rem;
+  }
+}
+
+
+.sp-stack20 {
+  & > * + * {
+    @include sp {
+      margin-block-start: 2rem;
+    }
+  }
+}
+
+.sp-stack30 {
+  & > * + * {
+    @include sp {
+      margin-block-start: 3rem;
+    }
+  }
+}
+
+.sp-stack40 {
+  & > * + * {
+    @include sp {
+      margin-block-start: 4rem;
+    }
+  }
+}
+
+.sp-stack50 {
+  & > * + * {
+    @include sp {
+      margin-block-start: 4rem;
+    }
+  }
+}
+
+.sp-stack60 {
+  & > * + * {
+    @include sp {
+      margin-block-start: 6rem;
+    }
+  }
+}
+
+.sp-stack80 {
+  & > * + * {
+    @include sp {
+      margin-block-start: 8rem;
+    }
+  }
+}
+
+.sp-stack150 {
+  & > * + * {
+    @include sp {
+      margin-block-start: 15rem;
+    }
+  }
+}

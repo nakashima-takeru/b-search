@@ -1,0 +1,76 @@
+@import '../mixin/_vw';
+/*====================================================================
+追従CTA
+====================================================================*/
+.global-nav-cv {
+  position: fixed;
+  right: 6vw;
+  bottom: 6vw;
+  z-index: 81;
+  transition: transform 0.4s cubic-bezier(0.43, 0.05, 0.17, 1),
+    opacity 0.4s cubic-bezier(0.26, 0.16, 0.1, 1);
+
+  @include sp {
+    display: none;
+  }
+}
+
+.global-nav-cv__text {
+  font-size: $font15;
+  font-weight: bold;
+  color: $color-white;
+  text-align: center;
+}
+
+.global-nav-cv__bg {
+  position: relative;
+  padding: 15px;
+  background-color: $color-dark-gray;
+  border-radius: 10px;
+}
+
+.global-nav-cv__contents {
+  display: grid;
+  gap: 15px;
+  margin: 15px 0 0;
+}
+
+.global-nav-cv__btn {
+  width: 210px;
+  height: 44px;
+  a {
+    font-weight: bold;
+  }
+}
+
+.global-nav-cv__close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.global-nav-cv__bg {
+  .buttonItem__ico {
+    width: 30px;
+    height: 30px;
+    @media (min-width: 769px) and (max-width: 1440px) {
+      width: vwPC(30);
+      height: vwPC(30);
+    }
+    @include sp {
+      width: vwSP(50);
+      height: vwSP(50);
+    }
+  }
+}
+
+// close
+
+.is-close.global-nav-cv {
+  opacity: 0;
+  transform: translateX(30%);
+  visibility: hidden;
+}

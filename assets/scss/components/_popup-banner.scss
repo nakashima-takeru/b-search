@@ -1,0 +1,55 @@
+.popup-banner {
+  width: min(40%, 300px);
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 2;
+  transform: translateX(-120%);
+  transition: transform 0.5s ease-in-out;
+  &.active {
+    transform: translateX(0);
+  }
+  &.disabled {
+    display: none;
+  }
+}
+
+.popup-banner__link {
+  display: block;
+}
+
+.popup-banner__close {
+  width: 25px;
+  aspect-ratio: 1;
+  background-color: $color-blue;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.popup-banner__image {
+  &.pc {
+    display: block;
+  }
+  &.sp {
+    display: none;
+  }
+}
+
+// SP画像がある場合のみ差し替える
+.popup-banner.has-sp-image {
+  @include sp {
+    .popup-banner__image.pc {
+      display: none;
+    }
+    .popup-banner__image.sp {
+      display: block;
+    }
+  }
+}
+
+.popup-banner__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

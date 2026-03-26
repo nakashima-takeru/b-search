@@ -1,0 +1,359 @@
+@import '../mixin/_vw';
+/*====================================================================
+フッター
+====================================================================*/
+
+/*--------------------------------
+資料請求・お問い合わせ・メルマガ登録
+--------------------------------*/
+.card-contact {
+  color: $color-white;
+  font-family: $system;
+}
+
+.card-contact__icon {
+  display: flex;
+  justify-content: center;
+  & svg {
+    width: 50px;
+    height: 50px;
+    @include sp {
+      width: vwSP(40);
+      height: vwSP(40);
+    }
+  }
+}
+
+.card-contact__title-area {
+  @include sp {
+    display: flex;
+    gap: vwSP(10);
+    align-items: center;
+  }
+}
+
+.card-contact__title {
+  margin: 10px 0 0;
+  font-size: $font24;
+  font-weight: bold;
+  font-family: $Noto-sans-jp;
+  line-height: 1.7;
+  color: $color-white;
+
+  @include sp {
+    margin: 0;
+    font-size: vwSP(18);
+  }
+}
+
+.card-contact__desc {
+  font-size: $font13;
+  font-family: $Noto-sans-jp;
+  line-height: 1.8;
+  letter-spacing: 0.065em;
+  color: $color-white;
+  @include sp {
+    font-size: vwSP(15);
+    text-align: left;
+  }
+
+  br {
+    @media (min-width: 769px) and (max-width: 1294px) {
+      display: none !important;
+    }
+  }
+}
+
+.card-contact__btn {
+  max-width: 260px;
+  width: 100%;
+  height: 50px;
+  @include sp {
+    max-width: none;
+    width: 100%;
+    height: vwSP(50);
+  }
+
+  .buttonItem__link {
+    font-size: $font14;
+    font-family: $Noto-sans-jp;
+    font-weight: 600;
+  }
+}
+
+.global-contact__bg {
+  padding-block: 40px;
+  padding-inline: 40px;
+  text-align: center;
+  background-color: $color-blue;
+  display: grid;
+  place-items: center;
+  @include sp {
+    padding: vwSP(60) 1.5rem;
+  }
+}
+
+.global-contact__list {
+  max-width: 1040px;
+  width: 100%;
+  column-gap: 100px;
+  display: block grid;
+  grid-template-columns: 1fr 1px 1fr;
+  @media (min-width: 769px) and (max-width: 1024px) {
+    column-gap: 60px;
+  }
+  @include sp {
+    gap: vwSP(40);
+    grid-template-columns: 1fr;
+  }
+  .divider {
+    background-color: #8dbaef;
+    grid-column: 2;
+    @include sp {
+      display: none;
+    }
+  }
+}
+
+.global-contact__item {
+  display: grid;
+  grid-template-rows: subgrid;
+  justify-items: center;
+  grid-row: span 3;
+  row-gap: 20px;
+  @include sp {
+    justify-items: left;
+    width: 100%;
+  }
+}
+
+.global-contact br {
+  @media (min-width: 769px) and (max-width: 1023px) {
+    display: none !important;
+  }
+}
+
+/*--------------------------------
+フッター
+--------------------------------*/
+.global-footer {
+  position: relative;
+  padding-bottom: 0 !important;
+  font-family: $system;
+  a:hover {
+    text-decoration: none !important;
+  }
+}
+
+.global-footer__contents {
+  padding: 90px 0 100px;
+  background-color: $bg-gray;
+  @include sp {
+    padding: vwSP(60) 0;
+  }
+}
+
+.global-footer__nav-container {
+  & > * + * {
+    margin-top: 30px;
+    @include sp {
+      margin-top: vwSP(45);
+    }
+  }
+}
+
+.global-footer__media-nav {
+  --gap: 40px;
+  --sidebar: 126px;
+  --content-max: 500px;
+  display: flex;
+  gap: var(--gap);
+  @include sp {
+    flex-direction: column;
+    --gap: 16px;
+  }
+  & > :first-child {
+    flex-basis: var(--sidebar);
+    flex-grow: 1;
+    @include sp {
+      flex-basis: auto;
+    }
+  }
+  & > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    max-width: var(--content-max);
+  }
+}
+
+.global-footer__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 30px;
+  @include sp {
+    flex-direction: column;
+    gap: vwSP(25);
+  }
+}
+
+.global-footer__title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 2.1;
+  @include sp {
+    line-height: 1.4;
+  }
+}
+
+.global-footer__top-parent {
+  flex-shrink: 0;
+  max-width: 124px;
+  width: 100%;
+
+  @include sp {
+    width: auto;
+    max-width: none;
+  }
+}
+
+.global-footer__link {
+  position: relative;
+  font-size: $font16;
+  font-weight: bold;
+  line-height: 2.1;
+  letter-spacing: 0.075em;
+  @include sp {
+    font-size: vwSP(16);
+  }
+}
+
+.global-footer__child-list {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 25px;
+  @include sp {
+    gap: vwSP(15);
+  }
+}
+
+.global-footer__child-link {
+  font-size: $font14;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  @include sp {
+    font-size: vwSP(14);
+  }
+}
+
+// info
+.global-footer-info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 64px;
+  row-gap: 24px;
+  @include sp {
+    row-gap: vwSP(40);
+    display: block;
+    margin-top: vwSP(45);
+  }
+}
+
+.global-footer-info__company {
+  & > * + * {
+    margin-top: 10px;
+  }
+}
+
+.global-footer-info__company-name {
+  font-size: $font16;
+  font-weight: bold;
+  line-height: 1.7;
+  letter-spacing: 0.07em;
+  display: inline-block;
+  @include sp {
+    font-size: vwSP(16);
+    font-weight: bold;
+  }
+  & > * {
+    line-height: 1;
+    display: inline flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .svg-blank {
+    margin-top: 1px;
+    display: inline-block;
+    width: 12px;
+    aspect-ratio: 1;
+    @include sp {
+      width: vwSP(12);
+      margin-top: vwSP(1);
+    }
+  }
+}
+
+.global-footer-info__company-phone,
+.global-footer-info__company-address {
+  font-size: 12px;
+  font-family: $Noto-sans-jp;
+  line-height: 1.7;
+  letter-spacing: 0.07em;
+  @include sp {
+    font-size: vwSP(14);
+  }
+}
+
+.global-footer-info__company-phonenumber {
+  @include pc {
+    pointer-events: none;
+    background: none;
+  }
+  @include sp {
+    text-decoration: underline;
+  }
+}
+
+.global-footer-info__sns-link-list {
+  display: grid;
+  grid-template-columns: repeat(5, 3.2rem);
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: 1rem;
+}
+
+.global-footer-info__sns-link-item a {
+  display: block;
+}
+
+.global-footer-submenu {
+  margin-top: 24px;
+  @include sp {
+    margin-top: vwSP(40);
+  }
+}
+
+.global-footer-submenu__link {
+  font-size: $font14;
+  line-height: 1.7;
+  letter-spacing: 0.07em;
+  text-align: left;
+  @include sp {
+    display: inline-block;
+    font-size: vwSP(14);
+  }
+}
+
+.global-footer-copyright {
+  margin-top: 30px;
+  @include pc {
+    font-size: $font13;
+    text-align: right;
+  }
+  @include sp {
+    margin-top: vwSP(40);
+    font-size: vwSP(13);
+  }
+}

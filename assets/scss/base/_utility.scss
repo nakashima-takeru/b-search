@@ -1,0 +1,65 @@
+[data-only-show='pc'] {
+  display: block !important;
+
+  @include sp {
+    display: none !important;
+  }
+}
+
+[data-only-show='sp'] {
+  display: none !important;
+
+  @include sp {
+    display: block !important;
+  }
+}
+
+// hover animation 下線あり→なし
+.bottom-line-trigger {
+  @include hover {
+    & .bottom-line-white,
+    & .bottom-line-blue,
+    & .bottom-line-black {
+      background-position: right bottom;
+      background-size: 0% 1px;
+    }
+  }
+}
+.bottom-line-black {
+  position: relative;
+  @include bottom-line;
+}
+.bottom-line-white {
+  position: relative;
+  @include bottom-line($color-white);
+  color: $color-white;
+}
+.bottom-line-blue {
+  position: relative;
+  @include bottom-line($color-blue);
+}
+
+// hover animation　下線なし→あり
+.hover-line-trigger {
+  @include hover {
+    & .hover-line-white,
+    & .hover-line-blue,
+    & .hover-line-black {
+      background-position: left bottom;
+      background-size: 100% 1px;
+    }
+  }
+}
+.hover-line-black {
+  position: relative;
+  @include hover-line($color-black);
+}
+.hover-line-white {
+  position: relative;
+  font-weight: 700;
+  @include hover-line($color-white);
+}
+.hover-line-blue {
+  position: relative;
+  @include hover-line($color-blue);
+}

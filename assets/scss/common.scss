@@ -1,0 +1,713 @@
+// ベーススタイルを読み込む
+@import './base/_variables';
+@import './base/_destyle';
+@import './base/_fonts';
+@import './base/_keyframes';
+@import './base/_splide-core.min';
+
+// mixinを読み込む
+@import './mixin/_mediaquery';
+@import './mixin/_hover';
+@import './mixin/_line-clamp';
+@import './mixin/_line-anime';
+
+// mixin利用のベーススタイルを読み込む
+@import './base/global';
+@import './base/utility';
+@import './base/primitives';
+
+// コンポーネントスタイルを読み込む
+@import './components/_button';
+@import './components/_breadcrumb';
+@import './components/_card-media';
+@import './components/_download-pickup';
+@import './components/_label';
+@import './components/_section-titleArea';
+@import './components/_author';
+@import './components/_carousel';
+@import './components/_card-entry';
+@import './components/_category-list';
+@import './components/_tag-list';
+@import './components/_grid-entries';
+@import './components/_media-carousel';
+@import './components/_related-services';
+
+@import './components/_entries-list-by-category';
+@import './components/_media-small';
+@import './components/_entries-section';
+@import './components/_page-header';
+@import './components/_download-banner';
+@import './components/_slider-basic';
+@import './components/_section-recommend';
+@import './components/_section-update';
+@import './components/_popup-banner';
+@import './components/_interstitial-banner';
+@import './components/_modal-search';
+
+// パーシャルスタイルを読み込む
+@import './partials/_global-header';
+@import './partials/_global-nav-cv';
+@import './partials/_global-footer';
+
+body {
+  font-family: $Noto-sans-jp;
+}
+
+/*--------------------------------
+パンくず
+--------------------------------*/
+.breadcrumbs-area {
+  width: 100vw;
+  padding: 0 5vw;
+  font-size: $font13;
+  color: #1e1e1e;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  @include sp {
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 0 15px;
+  }
+  a {
+    color: $color-blue;
+    position: relative;
+  }
+  &__list {
+    color: #1e1e1e;
+  }
+}
+
+/*--------------------------------
+fv
+--------------------------------*/
+.fv-area {
+  margin: 1.5rem 0 1.5rem;
+
+  @include sp {
+    margin: 2.5rem 0 3rem;
+  }
+  &--large {
+    margin: 1.5rem 0 5rem;
+    @include sp {
+      margin: 4rem 0 6rem;
+    }
+  }
+  &__title {
+    color: $color-blue;
+    font-size: $font36;
+    font-weight: 700;
+    line-height: 170%;
+    letter-spacing: 0.18rem;
+    // margin: -0.1rem 0 0 0.7rem;
+    @include sp {
+      font-size: 2.6rem;
+      letter-spacing: 0.13rem;
+    }
+  }
+  &--large &__title {
+    font-size: $font16;
+    @include sp {
+      font-size: 1.1rem;
+      letter-spacing: 0.055rem;
+    }
+  }
+  &__lead {
+    font-weight: 700;
+    line-height: 170%;
+    letter-spacing: 0.07rem;
+    font-size: $font14;
+    margin: 1rem 0 0 0;
+    @include sp {
+      font-size: 1.3rem;
+      letter-spacing: 0.065rem;
+    }
+  }
+  &--large &__lead {
+    font-size: $font16;
+    line-height: 200%;
+    margin: 2rem 0 0 0;
+    @include sp {
+      font-size: 1.3rem;
+      line-height: 170%;
+      letter-spacing: 0.065rem;
+      margin: 1rem 0 0 0;
+    }
+  }
+  &--large &__main {
+    display: flex;
+    justify-content: space-between;
+    @include sp {
+      flex-direction: column;
+    }
+  }
+  &--large &__title-en {
+    color: #1e1e1e;
+    font-family: $Cabinet-grotesk;
+    font-size: $font80;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 0.16rem;
+    // margin-top: 3rem;
+    @include sp {
+      font-size: 4rem;
+      letter-spacing: 0.08rem;
+      margin-top: 1rem;
+    }
+  }
+  &--large &__list {
+    display: flex;
+    margin: 6.5rem 0 0;
+    height: 100%;
+
+    @include pc {
+      max-width: 440px;
+    }
+    @include sp {
+      margin: 4rem 0 0;
+    }
+  }
+  &--large &__item {
+    font-size: $font14;
+    line-height: 200%;
+    letter-spacing: 0.07rem;
+    padding: 0 2rem;
+    position: relative;
+    @include pc {
+      line-height: 100%;
+      padding: 0 4rem;
+    }
+    @media (min-width: 769px) and (max-width: 1000px) {
+      padding: 0 1.5vw;
+    }
+    @include sp {
+      font-size: 1.3rem;
+      letter-spacing: 0.065rem;
+    }
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 1.2rem;
+      background: #ccc;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &:last-child::after {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 1.2rem;
+      background: #ccc;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    a {
+      display: block;
+      span {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+/*--------------------------------
+ページネーション
+--------------------------------*/
+.wp-pagenavi {
+  text-align: center;
+  font-size: $font13;
+  position: relative;
+  @include sp {
+    font-size: 1.3rem;
+  }
+  .pages {
+    // @include pc {
+    //   display: none;
+    // }
+    // display: inline-block;
+    // padding-top: 1.2rem;
+    display: none;
+  }
+  .current,
+  .page,
+  .first,
+  .last {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 6.3rem;
+    font-family: $Cabinet-grotesk;
+    font-weight: 700;
+    margin: 0 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    @include sp {
+      display: none;
+    }
+  }
+  .current {
+    color: $color-white;
+    background: $color-blue;
+  }
+  .page,
+  .first,
+  .last {
+    background-color: $bg-white;
+    transition: background-color var(--trs-hover), color 0.2s cubic-bezier(0.26, 0.16, 0.1, 1);
+    &:is([data-page="download-pdf"] *) {
+      background-color: $bg-gray;
+    }
+  }
+  .page:hover,
+  .first:hover,
+  .last:hover {
+    background-color: $color-blue;
+    color: $color-white;
+  }
+  .previouspostslink,
+  .nextpostslink {
+    color: $color-white;
+    background: $color-blue;
+    border-radius: 6.3rem;
+    transition: scale var(--trs-hover);
+    width: 10.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    @include pc {
+      height: 5rem;
+    }
+    @include sp {
+      height: 4rem;
+    }
+  }
+  .previouspostslink {
+    left: 0;
+  }
+  .nextpostslink {
+    right: 0;
+  }
+  .previouspostslink:hover,
+  .nextpostslink:hover {
+    scale: 1.05;
+  }
+}
+
+// wp-pagenaviが対応していない箇所の自作ページネーション
+.queryy-pagination {
+  font-size: $font13;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  .pages {
+    @include pc {
+      display: none;
+    }
+    display: inline-block;
+  }
+  .page,
+  .prev,
+  .next {
+    a {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 6.3rem;
+      background-color: $color-white;
+      font-weight: 700;
+      margin: 0 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: filter 0.5s;
+      &:hover {
+        filter: brightness(90%);
+      }
+    }
+  }
+  .page {
+    font-family: $Cabinet-grotesk;
+    @include sp {
+      display: none;
+    }
+  }
+  .prev,
+  .next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    a {
+      color: $color-white;
+      background-color: $color-blue;
+      width: 10.5rem;
+      @include pc {
+        height: 5rem;
+      }
+      @include sp {
+        height: 4rem;
+      }
+    }
+  }
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
+  .current {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 6.3rem;
+    background-color: $color-blue;
+    color: $color-white;
+    font-family: $Cabinet-grotesk;
+    font-weight: 700;
+    margin: 0 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    @include sp {
+      display: none;
+    }
+  }
+}
+
+.queryy-pagination__pages {
+  display: flex;
+  align-items: center;
+  @include sp {
+    display: none;
+  }
+}
+
+// .queryy-archive {
+//   padding-bottom: 25rem;
+//   @include sp {
+//     padding-bottom: 20rem;
+//   }
+// }
+
+/*------------------------------------
+ 記事一覧
+------------------------------------*/
+.queryy-archive-list {
+  padding-block-end: 15rem;
+  @include sp {
+    padding-block-end: 10rem;
+  }
+}
+
+.queryy-archive-list__sidebar {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 6.5rem;
+  & > :first-child {
+    flex-basis: 0;
+    flex-grow: 999;
+  }
+  & > :nth-child(2) {
+    flex-basis: 35rem;
+    position: relative;
+    @media (max-width: 69.375em) {
+      display: none;
+    }
+  }
+}
+
+.tagItem {
+  .text-line {
+    --border-color: #{$color-black};
+  }
+}
+
+.tagItem__wrapper {
+  display: flex;
+  align-items: center;
+  & > * + * {
+    margin-inline-start: 0.3rem;
+  }
+}
+
+.tagItem__icon {
+  width: 1.4rem;
+}
+
+.tagItem__text {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/*-------------
+ 記事詳細 - 本文
+--------------*/
+.entry-content {
+  font-size: 1.6rem;
+  line-height: 2;
+  & > * {
+    & + * {
+      margin-block-start: 2.5rem;
+    }
+    &:where(h2 + *, h3 + *, figure + *) {
+      margin-block-start: 3rem;
+    }
+  }
+
+  h2,
+  h3 {
+    margin-block-start: 6rem;
+  }
+  #toc_container + h2 {
+    margin-block-start: 4rem;
+  }
+  h2 {
+    padding-inline-start: 1.6rem;
+    border-left: 0.4rem solid $color-blue;
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.8;
+    @include sp {
+      padding-inline-start: 1.2rem;
+      font-size: 2.2rem;
+    }
+  }
+  h3 {
+    padding-block: 1.2rem;
+    padding-inline: 1.6rem;
+    background-color: $bg-gray;
+    font-size: 2.2rem;
+    font-weight: bold;
+    line-height: 1.8;
+    @include sp {
+      font-size: 2rem;
+    }
+  }
+  h4 {
+    margin-block-start: 6rem;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 2;
+    letter-spacing: 0.05em;
+  }
+  p {
+    letter-spacing: var(--lts);
+  }
+  :where(ul:not([class]), ol:not([class])) {
+    --_space-inline-start: 1.8em;
+    --_row-gap: 0.5rem;
+    --_font-size: 1.6rem;
+    --_line-height: 2;
+    font-size: var(--_font-size);
+    line-height: var(--_line-height);
+    display: grid;
+    row-gap: var(--_row-gap);
+    letter-spacing: var(--lts);
+    @include sp {
+      --_space-inline-start: 1.6em;
+    }
+  }
+  :where(ol:not([class])) {
+    padding-inline-start: var(--_space-inline-start);
+    list-style-type: revert;
+  }
+  :where(ul:not([class])) {
+    --_circle-size: 0.3rem;
+    li {
+      position: relative;
+      padding-inline-start: var(--_space-inline-start);
+      &::before {
+        content: '';
+        width: var(--_circle-size);
+        aspect-ratio: 1;
+        background-color: $color-black;
+        border-radius: 50%;
+        position: absolute;
+        top: calc(var(--_font-size) * var(--_line-height) / 2);
+        left: calc(var(--_space-inline-start) / 3);
+        translate: 0 -50%;
+      }
+    }
+  }
+  table {
+    --_row_head-w: 20rem;
+    width: 100%;
+    overflow-wrap: anywhere;
+    line-break: strict;
+    table-layout: fixed;
+    @include sp {
+      --_row_head-w: 10rem;
+    }
+    a {
+      word-break: break-all;
+    }
+    &:has(tbody th[scope="row"]) th:first-child {
+      width: var(--_row_head-w);
+      max-width: var(--_row_head-w);
+    }
+  }
+  th,
+  td {
+    min-width: 6rem;
+    padding-block: 1.3rem;
+    padding-inline: 2rem;
+    border: 0.1rem solid #e9e9e9;
+    font-size: 1.6rem;
+    line-height: 2;
+    letter-spacing: var(--lts);
+    @include sp {
+      padding-block: 0.5rem;
+      padding-inline: 1rem;
+      font-size: 1.2rem;
+    }
+    ul li {
+      font-size: inherit !important;
+    }
+  }
+  thead {
+    background-color: $color-blue;
+    th {
+      color: $color-white;
+      font-weight: bold;
+    }
+  }
+  .tablepress {
+    th {
+      color: $color-black;
+    }
+  }
+  tbody {
+    th[scope="row"] {
+      background-color: $color-light-blue;
+      font-weight: 400;
+      width: var(--_row_head-w);
+      max-width: var(--_row_head-w);
+    }
+  }
+  strong {
+    background-image: linear-gradient(transparent 50%, $color-yellow 0);
+  }
+  a {
+    color: $color-blue;
+    overflow-wrap: break-word;
+    transition: color var(--trs-hover);
+    @include hover {
+      color: $color-piction-blue;
+    }
+  }
+  figure.aligncenter {
+    text-align: center;
+  }
+  img.aligncenter {
+    width: auto;
+  }
+  iframe {
+    aspect-ratio: 560 / 315;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.faqBox {
+  & > * + * {
+    margin-block-start: 3rem;
+  }
+}
+
+.faqBox__list {
+  & > * + * {
+    margin-block-start: 2rem;
+  }
+}
+
+.faqItem {
+  & > * + * {
+    margin-block-start: 2rem;
+  }
+}
+
+.faqItem__q {
+  padding-block-end: 1rem;
+  padding-inline-start: 3rem;
+  border-bottom: 0.1rem solid $color-gray;
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.8;
+  position: relative;
+  &::before {
+    content: 'Q';
+    margin-inline-end: 1rem;
+    color: $color-blue;
+    font-size: 2.4rem;
+    font-family: $Verdana;
+    line-height: 1;
+    position: absolute;
+    top: calc(1.8rem * 1.8 / 2);
+    left: 0;
+    translate: 0 -50%;
+  }
+}
+
+.faqItem__a {
+  padding-inline-start: 3rem;
+}
+
+.pointBox {
+  border: 0.2rem solid $color-blue;
+}
+
+.pointTitle {
+  background: $color-blue;
+  color: $color-white;
+  font-size: 2.2rem;
+  padding-inline: 1.6rem;
+}
+.pointLead {
+  p,a {
+    font-size: 1.5rem;
+  }
+}
+
+.pointInner {
+  padding-block: 3rem 4rem;
+  padding-inline: 3rem;
+  @include sp {
+    padding-block: 2rem 3rem;
+    padding-inline: 1.6rem;
+  }
+}
+
+.pointBox__list {
+  dt {
+    --font-size: 1.8rem;
+    --circle-size: 0.6rem;
+    --line-height: 2;
+    padding-inline-start: 1em;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    position: relative;
+    letter-spacing: var(--lts);
+    margin-block-start: 1.6rem;
+    &::before {
+      content: "";
+      height: var(--circle-size);
+      width: var(--circle-size);
+      background-color: #000;
+      border-radius: 50%;
+      position: absolute;
+      top: calc(var(--font-size)* var(--line-height) / 2);
+      left: 0;
+      translate: 0 -50%;
+    }
+  }
+  dd {
+    p,a {
+      font-size: 1.5rem;
+    }
+  }
+}

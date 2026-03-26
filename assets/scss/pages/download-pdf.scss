@@ -1,0 +1,510 @@
+@import '../components/_card-download-pdf';
+@import '../components/_download-titleArea';
+@import '../mixin/_mediaquery';
+@import '../mixin/_hover';
+@import '../mixin/_line-clamp';
+@import '../mixin/_vw';
+@import '../base/variables';
+@import '../base/fonts';
+@import '../components/_blockEdit';
+
+/*====================================================================
+お役立ち資料ダウンロードページ
+====================================================================*/
+
+.downloadPage {
+  &__wrapper {
+    padding-top: 106px;
+    background-color: $bg-gray;
+
+    @include sp {
+      // padding: 3rem 15px 0;
+      padding: 3rem 0 0;
+    }
+  }
+
+  &__logo {
+    max-width: 240px;
+    margin: 0 auto;
+
+    @include sp {
+      width: 46%;
+      margin: 0 auto 3rem;
+    }
+  }
+
+  &__navi {
+    @include sp {
+      padding: 0 15px;
+    }
+
+    .navi-category__item {
+      margin-bottom: 1.5rem;
+    }
+
+    .label-category {
+      font-size: $font13;
+      font-weight: 500;
+      background-color: $color-white;
+
+      @include hover {
+        background-color: $color-blue;
+        color: $color-white;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-top: 1.5rem;
+    padding-bottom: 3rem;
+
+    @include sp {
+      flex-direction: column;
+      justify-content: start;
+      padding-bottom: 4.5rem;
+      align-items: start;
+    }
+
+    .left {
+      width: 49%;
+      position: relative;
+      @include sp {
+        width: 100%;
+        order: 2;
+      }
+    }
+
+    .right {
+      width: 47%;
+
+      @include sp {
+        margin-bottom: 6rem;
+        width: 100%;
+        order: 1;
+      }
+    }
+  }
+
+  &__title {
+    margin-block: 5.1rem 1.5rem;
+    font-size: clamp(26px, calc(30vw / 15), 30px);
+    font-weight: 700;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+
+    @include sp {
+      padding: 0 15px;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__summaryContainer {
+    margin-bottom: 1.5rem;
+
+    @include sp {
+      margin-bottom: 4.5rem;
+      padding: 0 15px;
+    }
+  }
+
+  &__summaryBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    &.is-gif {
+      display: block;
+    }
+
+    @include sp {
+      display: block;
+    }
+  }
+
+  &__summaryBox_summary {
+    width: 60%;
+
+    .is-gif & {
+      width: 100%;
+      margin-bottom: 5rem;
+    }
+
+    @include sp {
+      width: 100%;
+    }
+
+    strong {
+      font-size: 2.4rem;
+      font-weight: 800;
+    }
+
+    p {
+      margin-bottom: 2rem;
+      font-size: clamp(16px, calc(16vw / 15), 16px);
+      line-height: 130%;
+      letter-spacing: 0.05em;
+    }
+
+    ul li {
+      // margin-bottom: 1rem;
+      padding-left: 2rem;
+      position: relative;
+      font-size: clamp(15px, calc(15vw / 15), 15px);
+      line-height: 120%;
+      letter-spacing: 0.05em;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background-color: $color-blue;
+        border-radius: 50%;
+        position: absolute;
+        top: 5px;
+        left: 0;
+
+        @include sp {
+          top: 8px;
+        }
+      }
+
+      @include sp {
+        line-height: 150%;
+      }
+    }
+  }
+
+  &__summaryBox_image {
+    width: 34%;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .is-gif & {
+      width: 100%;
+    }
+
+    @include sp {
+      width: 100%;
+      margin-top: 2rem;
+    }
+  }
+
+  // hubspotのフォーム
+
+  &__hubspotformArea {
+    padding: 2.4rem 4rem;
+    background-color: $color-white;
+    border-radius: 20px;
+    width: 50%;
+
+    @include sp {
+      padding: 30px 15px;
+      border-radius: 0;
+    }
+
+    .hs-form-field {
+      margin-bottom: 8px;
+      padding-block: 2.4rem;
+      border-bottom: 1px solid #d5d5d5;
+
+      label {
+        font-size: clamp(15px, calc(15vw / 15), 15px);
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: .8rem;
+        position: relative;
+        line-height: 1.7;
+        margin-bottom: 0.8rem;
+
+        .hs-form-required {
+          // font-size: clamp(13px, calc(13vw / 15), 13px);
+          // color: #bb101d;
+          color: rgba(0, 0, 0, 0);
+
+          &::before {
+            color: #fff;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 20px;
+            text-align: center;
+            background: #e6526d;
+            border-radius: .5rem;
+            content: "必須";
+            padding: .2rem .75rem;
+          }
+        }
+      }
+
+      input[type='text'],
+      input[type='textarea'],
+      input[type='email'],
+      input[type='tel'] {
+        display: block;
+        width: 100%;
+        padding: 8px 15px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        font-size: clamp(15px, calc(15vw / 15), 15px);
+        font-weight: 400;
+        line-height: 200%;
+        background: $color-light-blue;
+
+        &.error {
+          border: 1px solid #bb101d;
+        }
+
+        &::placeholder {
+          color: #cccccc;
+        }
+      }
+
+      select {
+        display: block;
+        width: 100%;
+        padding: 8px 15px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        font-size: clamp(15px, calc(15vw / 15), 15px);
+        font-weight: 400;
+        line-height: 200%;
+        background: $color-light-blue;
+
+        &.is-placeholder {
+          color: #cccccc;
+        }
+
+        &.error {
+          border: 1px solid #bb101d;
+        }
+      }
+
+      &.hs-fieldtype-radio {
+        label {
+          margin-bottom: 1rem;
+        }
+
+        input[type='radio'] {
+          appearance: auto;
+          display: inline-block;
+          margin-right: 1rem;
+        }
+
+        .hs-form-radio {
+          span {
+            font-weight: 400;
+          }
+        }
+      }
+
+      &.hs-fieldtype-select {
+        .input {
+          position: relative;
+
+          &::after {
+            content: '';
+            display: block;
+            width: 18px;
+            height: 8px;
+            background: url('../../images/page/download-pdf/select-arrow.png')
+              center center / contain no-repeat;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+          }
+        }
+      }
+
+      .hs-error-msg {
+        margin-top: 0.5rem;
+        font-size: clamp(11px, calc(12vw / 15), 12px);
+        font-weight: 400 !important;
+        color: #bb101d;
+        letter-spacing: 0;
+        line-height: 100%;
+      }
+    }
+
+    .hs_error_rollup {
+      margin-top: 0.5rem;
+      font-size: clamp(14px, calc(14vw / 15), 14px);
+      font-weight: 700;
+      color: #bb101d;
+      letter-spacing: 0;
+      line-height: 100%;
+    }
+
+    .hs_submit {
+      margin-top: 2.5rem;
+
+      @include sp {
+        margin-top: 2rem;
+      }
+
+      .actions {
+        position: relative;
+        max-width: 35rem;
+        margin: 0 auto;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 35px;
+          height: 15px;
+          background: url('../../images/page/download-pdf/submit-icon.png')
+            center center / contain no-repeat;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(50%, -50%);
+          pointer-events: none;
+        }
+
+        input[type='submit'] {
+          display: block;
+          width: 100%;
+          max-width: 35rem;
+          padding: 17px;
+          margin: 0 auto;
+          text-align: center;
+          color: $color-white;
+          font-weight: 700;
+          font-size: clamp(15px, calc(15vw / 15), 15px);
+          letter-spacing: 0.05em;
+          line-height: 170%;
+          background-color: $color-orange;
+          border-radius: 63px;
+          transition: 0.3s;
+
+          @include hover {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+
+  &__hubspotformArea_policy {
+    margin-top: 2rem;
+    font-weight: 400;
+    font-size: clamp(11px, calc(13vw / 15), 13px);
+    text-align: center;
+  }
+
+  &__hubspotformArea_policyLink {
+    text-decoration: underline;
+    transition: 0.3s;
+
+    @include hover {
+      opacity: 0.6;
+    }
+  }
+
+  // 過去実績企業
+  &__company {
+    background-color: $color-light-blue;
+
+    @include sp {
+      padding: 0 15px;
+    }
+
+    .slider-container {
+      overflow: hidden;
+    }
+
+    .slider {
+      width: 100%;
+      position: relative;
+    }
+
+    .slides {
+      display: flex;
+      width: 500%;
+      animation: slide 100s linear infinite;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .slide {
+      flex-basis: 50%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__companyList {
+    @include sp {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: start;
+      align-items: start;
+    }
+  }
+
+  &__companyList_item {
+    @include sp {
+      width: 33.3%;
+    }
+  }
+
+  &__companyTitle {
+    padding: 1rem 5.5vw 0;
+    // margin-bottom: 2rem;
+    color: $color-blue;
+    font-weight: 700;
+    line-height: 170%;
+    letter-spacing: 0.05em;
+    font-size: clamp(22px, calc(22vw / 15), 22px);
+
+    @include sp {
+      padding: 0;
+    }
+  }
+
+  &__copyRight {
+    padding: 4.5rem 0;
+    text-align: center;
+    font-size: clamp(14px, calc(14vw / 15), 14px);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    line-height: 170%;
+    background-color: $color-light-blue;
+
+    @include sp {
+      padding: 4.5rem 0 3rem;
+    }
+  }
+}
+
+.downLoad__container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15rem;
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 5.6vw;
+
+  .left {
+    max-width: 52rem;
+  }
+}

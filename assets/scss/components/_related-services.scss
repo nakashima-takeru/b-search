@@ -1,0 +1,44 @@
+.related_services {
+  border-radius: 1rem;
+  border-width: 0.3rem;
+  border-color: $color-blue;
+  padding: 2rem 3rem;
+  --lts: 0.02em;
+  --line-height: 1.5;
+
+  &_title {
+    font-weight: bold;
+  }
+
+  &_listItem {
+    --font-size: 1.4rem;
+    --circle-size: 0.5rem;
+    --line-height: 1.5;
+    padding-inline-start: 1em;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    position: relative;
+    letter-spacing: var(--lts);
+    margin-block-start: 0.5rem;
+    &::before {
+      content: '';
+      height: var(--circle-size);
+      width: var(--circle-size);
+      background-color: #000;
+      border-radius: 50%;
+      position: absolute;
+      top: calc(var(--font-size) * var(--line-height) / 2);
+      left: 0;
+      translate: 0 -50%;
+    }
+  }
+
+  &_listItemTxt {
+    letter-spacing: var(--lts);
+  }
+
+  &_listItemLink {
+    text-decoration: underline;
+  }
+
+}

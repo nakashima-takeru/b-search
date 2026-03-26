@@ -1,0 +1,76 @@
+.carousel-arrow-btn {
+  aspect-ratio: 1;
+  width: 4rem;
+  border-radius: 50%;
+  background-color: $color-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  transition: scale var(--trs-hover);
+  @include hover {
+    scale: 1.07;
+  }
+  svg {
+    width: 20%;
+    color: $color-white;
+  }
+  &.white {
+    background-color: $color-white;
+    border: 1px solid rgba($color-black, 0.2);
+    svg {
+      color: $color-black;
+    }
+  }
+  &.small {
+    width: 3rem;
+  }
+  &.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+.carousel-pagination {
+  li:not(:first-child) {
+    margin-inline-start: 1rem; // 上書きできないためこの書き方
+  }
+}
+
+.carousel-pagination-btn {
+  --stroke-dashoffset: 290;
+  --stroke-dasharray: 290;
+  height: 2rem;
+  width: 2rem;
+  position: relative;
+}
+
+.carousel-pagination-btn__circle {
+  height: 0.6rem;
+  width: 0.6rem;
+  background-color: $color-black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.carousel-pagination-btn__progress {
+  & > * {
+    stroke-width: 6;
+    fill: none;
+  }
+}
+
+.carousel-pagination-btn__progress-bg {
+  stroke: #d9d9d9;
+}
+
+.carousel-pagination-btn__progress-bar {
+  stroke: $color-blue;
+  stroke-dashoffset: var(--stroke-dashoffset, 360);
+  stroke-dasharray: var(--stroke-dasharray, 290);
+  rotate: -90deg;
+  transform-origin: center;
+}

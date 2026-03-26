@@ -1,0 +1,139 @@
+.buttonItem {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: $font16;
+  font-weight: 500;
+  color: $color-white !important;
+  letter-spacing: 0.065em;
+  border-radius: 6.3rem;
+
+  @include sp {
+    font-size: 1.3rem;
+    border-radius: 10rem;
+  }
+  &.small {
+    font-size: 1.4rem;
+  }
+}
+
+.buttonItem[data-color='black'] {
+  background-color: $color-dark-gray;
+}
+
+.buttonItem[data-color='blue'] {
+  background-color: $color-blue;
+}
+
+.buttonItem[data-color='white'] {
+  background-color: $color-white;
+
+  .buttonItem__link {
+    color: $color-blue !important;
+  }
+
+  & .buttonItem__ico {
+    background-color: $color-blue;
+
+    & svg {
+      color: $color-white;
+    }
+  }
+}
+
+.buttonItem[data-color='green'] {
+  background: $color-green;
+}
+
+.buttonItem[data-color='orange'] {
+  background: $color-orange;
+
+  svg {
+    color: $color-orange;
+  }
+}
+
+.buttonItem[data-color='yellow'] {
+  background: $color-yellow;
+
+  .buttonItem__link {
+    color: $color-black;
+  }
+
+  .buttonItem__ico {
+    background-color: $color-black !important;
+  }
+
+  svg {
+    color: $color-white;
+  }
+}
+
+.buttonItem[data-color="red"] {
+  background-color: #ff7a7a;
+}
+
+.buttonItem__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  letter-spacing: 0.065em;
+}
+
+.buttonItem__ico {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.6rem;
+  display: flex;
+  width: 3.6rem;
+  height: 3.6rem;
+  margin: auto 0;
+  overflow: hidden;
+  color: $color-blue;
+  background-color: $color-white;
+  border-radius: 50%;
+  transition: transform 0.4s cubic-bezier(0.43, 0.05, 0.17, 1);
+  transform: scale(0.1);
+
+  a:hover & {
+    transform: scale(1) translateX(-0.08rem);
+    & .buttonItem__ico--enter {
+      opacity: 0;
+      transform: translateX(0);
+    }
+
+    & .buttonItem__ico--leave {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+}
+
+.buttonItem__ico--enter {
+  position: absolute;
+  inset: 0.01rem -0.01rem 0 0;
+  display: flex;
+  width: 0.86rem * 1.4;
+  height: 0.86rem * 1.4;
+  margin: auto;
+  transition: transform 0.4s cubic-bezier(0.43, 0.05, 0.17, 1),
+    opacity 0.001s linear 0.4s;
+  transform: translateX(-220%);
+}
+
+.buttonItem__ico--leave {
+  position: absolute;
+  inset: 0.01rem -0.01rem 0 0;
+  display: flex;
+  width: 0.86rem * 1.4;
+  height: 0.86rem * 1.4;
+  margin: auto;
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.43, 0.05, 0.17, 1),
+    opacity 0.001s linear 0.4s;
+  transform: translateX(220%);
+}

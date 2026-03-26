@@ -1,0 +1,64 @@
+@import '../base/variables';
+
+.not-found {
+  padding-bottom: 150px;
+  @media (max-width: 767px) {
+    padding-bottom: 100px;
+  }
+}
+
+.not-found__inner {
+  padding-inline: 15px;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.7;
+  display: grid;
+  row-gap: 40px;
+  place-items: center;
+  @media (max-width: 767px) {
+    row-gap: 28px;
+    font-size: 16px;
+  }
+}
+
+.not-found__title {
+  display: grid;
+  row-gap: 12px;
+  line-height: 1;
+}
+
+.not-found__code {
+  font-size: 144px;
+  font-weight: 900;
+  font-family: "Lato", sans-serif;
+  letter-spacing: 0.02em;
+  @media (max-width: 767px) {
+    font-size: 80px;
+  }
+}
+
+.not-found__message {
+  font-size: 48px;
+  font-weight: 900;
+  font-family: "Lato", sans-serif;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  @media (max-width: 767px) {
+    font-size: 28px;
+  }
+}
+
+.not-found__lead {
+  letter-spacing: 0.05em;
+  font-weight: 800;
+
+  .buttonItem {
+    font-family: 'ヒラギノ角ゴシック', Hiragino Sans, Meiryo, sans-serif;
+  }
+}
+
+.not-found__button {
+  width: min(300px, 100%);
+  height: 60px;
+}

@@ -1,0 +1,89 @@
+.downloadLink {
+  padding-block: 3.2rem;
+  padding-inline: 2rem;
+  border: 0.3rem solid $color-orange;
+  border-radius: 1rem;
+  background-color: $bg-gray;
+  display: grid;
+  place-items: center;
+  row-gap: 2rem;
+  overflow: hidden;
+  @include sp {
+    padding-block: 2rem;
+    padding-inline: 1.6rem;
+  }
+}
+
+.downloadLink__title {
+  padding-inline: 1em;
+  color: $color-orange;
+  background-image: linear-gradient(transparent 50%, #F7E5AB 0);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  @include sp {
+    padding-inline: 0.5em;
+    font-size: 1.8rem;
+  }
+}
+
+.downloadLink__body {
+  inline-size: 100%;
+  font-size: 1.6rem;
+  line-height: 2;
+  display: grid;
+  row-gap: 3rem;
+  place-items: center;
+  text-align: center;
+  @include sp {
+    font-size: 1.4rem;
+    text-align: left;
+  }
+}
+
+.downloadLink__card {
+  width: min(54rem, 100%);
+  a {
+    padding-block: 1rem;
+    padding-inline: 2.5rem;
+    background-color: $color-orange;
+    color: $color-white !important; // .entry-content a の上書きのため
+    font-size: 1.6rem;
+    line-height: 1.5;
+    letter-spacing: var(--lts);
+    display: flex;
+    align-items: center;
+    row-gap: 1rem;
+    transition: opacity 0.3s ease-in-out;
+    @include hover {
+      opacity: 0.8;
+      .downloadLink__image img {
+        scale: 1.07;
+      }
+    }
+    @include sp {
+      flex-direction: column;
+    }
+  }
+}
+
+.downloadLink__image {
+  flex-basis: 15rem;
+  overflow: hidden;
+  @include sp {
+    flex-basis: auto;
+  }
+  img {
+    transition: scale 0.3s ease-in-out;
+  }
+}
+
+.downloadLink__link-text {
+  font-weight: bold;
+  flex-grow: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: underline;
+}

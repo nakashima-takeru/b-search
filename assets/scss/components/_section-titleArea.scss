@@ -1,0 +1,90 @@
+@import '../mixin/_mediaquery';
+@import '../mixin/_hover';
+@import '../mixin/_line-clamp';
+@import '../mixin/_vw';
+@import '../base/variables';
+@import '../base/fonts';
+/*--------------------------------
+section-titleArea
+--------------------------------*/
+.section-titleArea {
+  & > * + * {
+    margin-block-start: 1rem;
+    @include sp {
+      margin-block-start: 0.5rem;
+    }
+  }
+}
+
+.section-titleArea__en {
+  font-family: $Cabinet-grotesk;
+  font-size: clamp(17px, calc(23vw / 15), 23px);
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  color: $color-blue;
+
+  @include sp {
+    font-size: 1.6rem;
+  }
+}
+.section-titleArea__jp {
+  font-size: $font26;
+  font-weight: bold;
+  line-height: 1.7;
+  letter-spacing: 0.12em;
+
+  @include sp {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+  }
+}
+
+.section-titleArea-2 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 0.6rem;
+  column-gap: 2rem;
+  @include sp {
+    column-gap: 1.5rem;
+  }
+}
+
+.section-titleArea-2__title {
+  font-family: $Lato;
+  font-size: clamp(3rem, calc(36vw / 15), 3.6rem);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.section-titleArea-2__subtitle {
+  font-size: 1.2rem;
+  font-family: $Noto-sans-jp;
+  line-height: 1.5;
+  letter-spacing: var(--lts);
+}
+
+
+.section-titleArea-3 {
+  & > * + * {
+    margin-block-start: 0.5rem;
+  }
+}
+
+.section-titleArea-3__title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  line-height: 1.7;
+  letter-spacing: var(--lts);
+}
+
+.section-titleArea-3__subTitle {
+  color: $color-blue;
+  font-family: $Verdana;
+  // font-size: clamp(3rem, calc(36vw / 15), 3.6rem);
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+

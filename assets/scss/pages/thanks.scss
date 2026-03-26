@@ -1,0 +1,58 @@
+@import '../base/variables';
+@import '../base/fonts';
+@import '../mixin/_mediaquery';
+
+.thanks-page {
+  padding-top: 178px;
+  padding-bottom: 150px;
+}
+
+.thanks-page__inner {
+  display: grid;
+  row-gap: 40px;
+  place-items: center;
+  @include sp {
+    row-gap: 32px;
+  }
+}
+
+.thanks-page__title-en {
+  font-family: $Lato;
+  font-size: 80px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  @include sp {
+    font-size: 40px;
+  }
+}
+
+.thanks-page__title-ja {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+  @include sp {
+    font-size: 20px;
+  }
+}
+
+.thanks-page__desc {
+  font-size: 18px;
+  text-align: center;
+  line-height: 2;
+  letter-spacing: 0.05em;
+  @include sp {
+    font-size: 16px;
+  }
+}
+
+.thanks-page__button {
+  width: min(300px, 100%);
+  height: 60px;
+
+  .buttonItem__link {
+    font-family: $system;
+  }
+}

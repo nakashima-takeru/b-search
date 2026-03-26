@@ -1,0 +1,9 @@
+@function vwPC($size, $pc-design: 1280) {
+  $rate: calc(100 / $pc-design);
+  @return $rate * $size * 1vw;
+}
+
+@function vwSP($size, $sp-design: 375) {
+  $rate: calc(100 / $sp-design);
+  @return $rate * $size * 1vw;
+}

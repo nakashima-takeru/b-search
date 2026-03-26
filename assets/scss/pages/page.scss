@@ -1,0 +1,46 @@
+.page-content {
+  --_spacing-start: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 2;
+
+  & > :not(:where(:first-child)) {
+    margin-top: var(--_spacing-start);
+  }
+
+  :where(h2) {
+    --_spacing-start: 40px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 22px;
+  }
+
+  :where(h2, h3, h4) {
+    font-weight: 700;
+    line-height: 1.8;
+  }
+
+  :where(h2, h3, h4) + * {
+    --_spacing-start: 24px;
+  }
+
+  :where(ul, ol) {
+    --_spacing-start: 16px;
+    padding-left: 24px;
+    display: grid;
+    row-gap: 6px;
+    list-style-type: revert;
+    & :where(ul, ol) {
+      padding-left: 54px;
+      margin-top: 8px;
+      @media (max-width: 768px) {
+        padding-left: 24px;
+      }
+    }
+  }
+}
+
+.page__subTitle {
+  font-size: 2.4rem;
+  font-weight: 800;
+}

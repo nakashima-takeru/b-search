@@ -1,0 +1,114 @@
+@import '../mixin/_mediaquery';
+@import '../mixin/_hover';
+@import '../mixin/_line-clamp';
+@import '../mixin/_vw';
+@import '../base/variables';
+@import '../base/fonts';
+
+/*--------------
+  資料ダウンロードカードリスト
+  ---------------*/
+
+.downloadPage-card {
+  padding-top: 10rem;
+  padding-bottom: 15rem;
+  background-color: $color-white;
+
+  @include sp {
+    padding: 3rem 0 6rem;
+  }
+}
+
+.downloadPage-card__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4.5rem 1.5rem;
+
+  @include sp {
+    gap: 2rem;
+  }
+}
+
+.downloadPage-card__item {
+  max-width: calc((100% - 3rem) / 3);
+  width: 100%;
+  background: $bg-gray;
+  padding: 3.5rem 3rem 11.5rem;
+  position: relative;
+  border-radius: 1rem;
+
+  @include sp {
+    max-width: none;
+    padding: 3rem 2rem;
+  }
+}
+
+.downloadPage-card__item-link {
+  display: block;
+
+  @include hover {
+    .downloadPage-card__item-title {
+      .hover-line-blue {
+        color: $color-blue;
+      }
+    }
+  }
+}
+
+.downloadPage-card__item-imageWrap {
+  width: 100%;
+  margin-top: 1.3rem;
+  height: 0;
+  padding-bottom: 53.3333%;
+  position: relative;
+  overflow: hidden;
+}
+
+.downloadPage-card__item-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.downloadPage-card__item-title {
+  margin-top: 2.5rem;
+  font-size: $font18;
+  font-weight: 700;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+
+  @include sp {
+    margin-top: 1.5rem;
+    font-size: 1.8rem;
+  }
+}
+
+.downloadPage-card__item-btn {
+  width: calc(100% - 6rem);
+  height: 5rem;
+  position: absolute;
+  left: 3rem;
+  bottom: 4rem;
+
+  @include sp {
+    margin-top: 2rem;
+    width: calc(100% - 4rem);
+    position: static;
+    width: 100%;
+  }
+}
+
+/*--------------
+  カードリスト
+  ---------------*/

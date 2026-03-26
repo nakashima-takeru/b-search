@@ -1,0 +1,66 @@
+@import '../mixin/_mediaquery';
+@import '../mixin/_hover';
+@import '../mixin/_line-clamp';
+@import '../mixin/_vw';
+@import '../base/variables';
+@import '../base/fonts';
+
+main.downloadPage {
+  /*--------------
+  FV
+  ---------------*/
+
+  .fv-area__lead {
+    max-width: 675px;
+    font-size: clamp(16px, calc(16vw / 15), 16px);
+  }
+
+  .navi-category__itemList {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    &.margin-none {
+      margin-bottom: 0;
+
+      @include sp {
+        margin-bottom: 0;
+      }
+    }
+
+    @include sp {
+      margin-bottom: 2rem;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+    }
+  }
+
+  .navi-category__item {
+    margin-bottom: 1rem;
+
+    @include sp {
+      white-space: nowrap;
+    }
+
+    &.is-active {
+      .label-category {
+        background-color: $color-blue;
+      }
+    }
+
+    .label-category {
+      background-color: $color-white;
+
+      @include hover {
+        background-color: $color-blue;
+      }
+    }
+  }
+
+  /*--------------
+  FV
+  ---------------*/
+}

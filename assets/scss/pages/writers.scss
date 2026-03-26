@@ -1,0 +1,41 @@
+@import '../mixin/_mediaquery';
+@import '../mixin/_hover';
+@import '../base/variables';
+@import '../base/fonts';
+@import '../mixin/_line-clamp';
+@import '../mixin/_vw';
+@import '../components/writer-item';
+
+.writers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
+  gap: 10rem;
+  @include sp {
+    gap: 8rem;
+  }
+}
+
+.writers-grid__item {
+  & > * {
+    @include sp {
+      margin-inline: auto;
+      max-width: 70%;
+    }
+  }
+}
+
+.writers-latest-entries-wrapper {
+  padding-block-start: 8rem;
+  padding-block-end: 10rem;
+  @include sp {
+    padding-block-end: 5rem;
+  }
+}
+
+.writers-ranking-entries-wrapper {
+  padding-block: 15rem 7rem;
+  background-color: $bg-white;
+  @include sp {
+    padding-block: 10rem 5rem;
+  }
+}

@@ -1,0 +1,74 @@
+/*--------------------------------
+パンくず
+--------------------------------*/
+.breadcrumbs-area {
+  width: 100vw;
+  padding: 0 5vw;
+  font-size: $font13;
+  color: $color-light-gray;
+  @include sp {
+    width: 100%;
+    font-size: 1.3rem;
+  }
+  a {
+    color: $color-blue;
+    display: flex;
+    align-items: center;
+    position: relative;
+    &::after {
+      content: '';
+      width: 0.5rem;
+      height: 0.5rem;
+      border-top: 0.1rem solid $color-gray;
+      border-right: 0.1rem solid $color-gray;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      margin: 0 10px;
+      display: inline-block;
+    }
+  }
+}
+
+.breadcrumbs-area__list {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  & > * {
+    white-space: nowrap;
+  }
+  & > span {
+    display: flex;
+  }
+}
+
+.breadcrumbs-area__item {
+  &:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+
+#brdcrmb {
+  position: relative;
+  z-index: 1;
+  padding: 0 5vw;
+  font-size: 13px;
+
+  a {
+    color: #1b75de;
+    &::after {
+      content: "";
+      position: relative;
+      display: inline-block;
+      top: -3px;
+      width: 5px;
+      height: 5px;
+      border-top: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      margin: 0 10px;
+    }
+  }
+}

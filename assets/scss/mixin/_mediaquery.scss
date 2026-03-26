@@ -1,0 +1,18 @@
+// メディアクエリ
+@mixin tab() {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin pc() {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
+@mixin sp() {
+  @media (max-width: 768px) {
+    @content;
+  }
+}

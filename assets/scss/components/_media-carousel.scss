@@ -1,0 +1,132 @@
+.media-carousel {
+  container-type: inline-size;
+  container-name: media-carousel;
+  background-color: $color-white;
+  border-radius: 1rem;
+  overflow: hidden;
+  &.pc {
+    aspect-ratio: 951 / 393;
+    @include sp {
+      display: none;
+    }
+  }
+  &.sp {
+    display: none;
+    @include sp {
+      display: block;
+    }
+  }
+}
+
+.media-carousel__wrapper {
+  height: 100%;
+  display: flex;
+}
+
+.media-carousel__text-area {
+  flex-basis: 38%;
+  padding-block: 3.6rem 1.7rem;
+  padding-inline: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-carousel__thumbnail {
+  flex-basis: 0;
+  flex-grow: 999;
+  width: 62%;
+  & > * {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.media-carousel__head {
+  margin-block-end: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.media-carousel__label {
+  font-family: $Lato;
+  line-height: 1;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  & > *:first-child {
+    writing-mode: vertical-lr;
+    text-transform: uppercase;
+    font-size: clamp(0.8rem, calc(10vw / 15), 1rem);
+  }
+  & > *:last-child {
+    margin-inline-start: 0.5rem;
+    font-size: clamp(4rem, calc(60vw / 15), 6rem);;
+  }
+}
+
+.media-carousel__title {
+  margin-block-start: 4rem; // threshold
+  font-size: clamp(2rem, 1.852vw + 0.5rem, 2.4rem);
+  font-weight: 800;
+  font-family: $Noto-sans-jp;
+  line-height: 1.7;
+  letter-spacing: var(--lts);
+  // -webkit-box-orient: vertical;
+  // display: -webkit-box;
+  // -webkit-line-clamp: 3;
+  // overflow: hidden;
+}
+
+.media-carousel__btn {
+  height: 4rem;
+  margin-block-start: 4rem;
+
+  .buttonItem__link {
+    font-size: $font14;
+  }
+}
+
+@container media-carousel (max-width: 90rem) {
+  .media-carousel__text-area {
+    flex-basis: 45%;
+    padding-block: 3.5rem;
+    padding-inline: 4rem;
+  }
+}
+
+@container media-carousel (max-width: 72rem) {
+  .media-carousel__wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .media-carousel__text-area {
+    padding-block: 4rem 4.5rem;
+    padding-inline: 2.4rem;
+    flex-basis: auto;
+    flex-grow: 1;
+    height: 100%;
+  }
+
+  .media-carousel__head {
+    margin-block-end: inherit;
+  }
+
+  .media-carousel__thumbnail {
+    width: 100%;
+    flex-basis: auto;
+    aspect-ratio: 345 / 230;
+    flex-shrink: 0;
+  }
+
+  .media-carousel__btn {
+    display: none;
+  }
+}
+
+@container media-carousel (max-width: 400px) {
+  .media-carousel__title {
+    margin-block-start: 2rem;
+  }
+}

@@ -1,0 +1,356 @@
+.s-carousel-form-box {
+  padding-block: 3rem;
+  background-color: $color-blue;
+  color: $color-white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  @include sp {
+    padding-block: 3rem 7rem;
+  }
+  &.white {
+    background-color: $color-white;
+    color: $color-black;
+    border-radius: 0 0 1rem 1rem;
+  }
+}
+
+.s-carousel-form-box__header {
+  padding-inline: 2rem;
+  text-align: center;
+  @include sp {
+    padding-inline: 1rem;
+  }
+  & > * + * {
+    margin-block-start: 0.4rem;
+    @include sp {
+      margin-block-start: 0.8rem;
+    }
+  }
+}
+
+.s-carousel-form-box__label {
+  color: $color-white;
+  font-weight: bold;
+  letter-spacing: var(--lts);
+}
+
+.s-carousel-form-box__title {
+  line-height: 1.5;
+  font-size: 2.4rem;
+  font-weight: bold;
+  letter-spacing: var(--lts);
+  @include sp {
+    font-size: 2rem;
+  }
+}
+
+.s-carousel-form-box__description {
+  line-height: 1.5;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: var(--lts);
+}
+
+.s-carousel-form-box-step {
+  width: 100%;
+  margin-block: 1.8rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.s-carousel-form-box-step__bg-line {
+  height: 1px;
+  width: 100%;
+  background-color: rgba($color-white, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  translate: 0 -50%;
+  &:is(.s-carousel-form-box.white *) {
+    background-color: rgba($color-black, 0.1);
+  }
+}
+
+.s-carousel-form-box-step__inner {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  & > * + * {
+    margin-inline-start: 24px;
+  }
+  @for $i from 2 through 5 {
+    &:is(.s-carousel-form-box[data-step='#{$i}'] *) {
+      &::before {
+        translate: calc(30px * ($i - 1)) -50%;
+      }
+      &::after {
+        translate: calc(30px * ($i - 1));
+      }
+    }
+  }
+  &::before {
+    content: '';
+    width: 6px;
+    background-color: $color-orange;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    translate: 0 -50%;
+    transition: translate 0.3s ease-in-out;
+  }
+  &::after {
+    content: '';
+    width: 20px;
+    border: 1px solid $color-orange;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 0;
+    left: -7px;
+    transition: translate 0.3s ease-in-out;
+  }
+}
+
+.s-carousel-form-box-step__point {
+  width: 6px;
+  background-color: $color-white;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  &:is(.s-carousel-form-box.white *) {
+    background-color: $color-black;
+  }
+}
+
+.s-carousel-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.s-carousel-form__list {
+  width: 100%;
+  display: flex;
+}
+
+.s-carousel-form__return {
+  position: absolute;
+  bottom: 0;
+  left: 3rem;
+  visibility: hidden;
+  @include sp {
+    left: 1.4rem;
+    bottom: -5rem;
+  }
+  &:is(.s-carousel-form-box[data-step="2"] *),
+  &:is(.s-carousel-form-box[data-step="3"] *),
+  &:is(.s-carousel-form-box[data-step="4"] *),
+  &:is(.s-carousel-form-box[data-step="5"] *) {
+    visibility: visible;
+  }
+}
+
+.s-carousel-form__return-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: underline;
+  & > * + * {
+    margin-inline-start: 0.5rem;
+  }
+  .icon {
+    --size: 1.2rem;
+    width: var(--size);
+    display: flex;
+  }
+}
+
+.s-carousel-form__button {
+  height: 4rem;
+  .buttonItem {
+    font-weight: bold;
+  }
+  &.next {
+    width: 12rem;
+    display: block;
+    &:is(.s-carousel-form-box[data-step="5"] *) {
+      display: none;
+    }
+  }
+  &.submit {
+    width: 22rem;
+    display: none;
+    &:is(.s-carousel-form-box[data-step="5"] *) {
+      display: block;
+    }
+  }
+}
+
+.s-carousel-form-item {
+  padding-inline: 3rem;
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: translate 0.3s ease-in-out;
+  @include sp {
+    padding-inline: 1.4rem;
+  }
+  @for $i from 2 through 5 {
+    &:is(.s-carousel-form-box[data-step="#{$i}"] *) {
+      translate: calc(-100% * ($i - 1));
+    }
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding-block: 1.3rem;
+    padding-inline: 1.5rem;
+    border-radius: 0.5rem;
+    color: #000;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    letter-spacing: var(--lts);
+    &::placeholder {
+      color: #9b9b9b;
+    }
+    &:is(.s-carousel-form-box.white *) {
+      border: 0.1rem solid $color-gray;
+    }
+  }
+
+  fieldset {
+    width: 100%;
+}
+
+  select {
+    width: 100%;
+    padding-block: 2rem 1rem;
+    padding-inline: 1.5rem;
+    background-color: #fff;
+    border-radius: .5rem;
+    color: #000;
+    appearance: auto;
+}
+  
+  .radioItem {
+    // & > * + * {
+    //   margin-inline-start: 0.5rem;
+    // }
+    // input {
+    //   width: 2.8rem;
+    //   background-color: $color-white;
+    //   border-radius: 50%;
+    //   aspect-ratio: 1;
+    // }
+  }
+  .errorText {
+    color: $color-error;
+    font-size: 1.2rem;
+  }
+
+  select {
+    width: 100%;
+    padding-block: 2rem 1rem;
+    padding-inline: 1.5rem;
+    background-color: #fff;
+    border-radius: .5rem;
+    color: #000;
+    appearance: auto;
+  }
+
+  fieldset {
+    width: 100%;
+
+  }
+}
+
+.s-carousel-form-item__header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: var(--lts);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  .step {
+    padding-inline: 0.4rem;
+    background-color: $color-white;
+    border-radius: 0.2rem;
+    color: $color-blue;
+    font-size: 1rem;
+    text-transform: uppercase;
+    &:is(.s-carousel-form-box.white *) {
+      color: $color-black;
+    }
+  }
+}
+
+.radio-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.radioItem {
+  font-size: 1.6rem;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  input[type="radio"] {
+    height: 1.75em;
+    width: 1.75em;
+    margin: 0;
+    position: absolute;
+    top: -0.125em;
+    left: -0.125em;
+    font-size: 1em;
+  }
+}
+
+.radioItem__icon {
+  height: 1.5em;
+  width: 1.5em;
+  background-color: $color-white;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  &::after {
+    content: '';
+    width: 65%;
+    height: 65%;
+    background-color: #7ee818;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    scale: 0;
+    transition: scale 0.2s ease-out;
+  }
+  &:is(.radioItem input[type="radio"]:checked + *) {
+    &::after {
+      scale: 1;
+    }
+  }
+}
+
+.radioItem__label {
+  padding-inline-start: 1.75em;
+}
