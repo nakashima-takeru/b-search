@@ -1,0 +1,350 @@
+@import "../mixin/_mediaquery";
+@import "../mixin/_hover";
+@import "../base/variables";
+@import "../base/fonts";
+@import "../mixin/_line-clamp";
+
+/*====================================================================
+ LPページ
+ ====================================================================*/
+
+.lp-page {
+  overflow-x: hidden;
+}
+
+.lp-container {
+  @include sp {
+    padding-inline: 1.5rem;
+  }
+  margin-inline: auto;
+  max-width: 1100px;
+  padding-inline: 4rem;
+}
+
+section {
+  @include sp {
+    padding-block: 5rem;
+  }
+  padding-block: 8rem;
+
+  .section-title-area {
+    margin-bottom: 5rem;
+    text-align: center;
+
+    .section-title-area__sub {
+      color: $color-blue;
+      font-size: $font26;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .section-title-area__main {
+      color: $color-blue;
+      font-size: $font42;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-top: 2rem;
+      span {
+        color: $color-aqua;
+      }
+    }
+
+    .section-title-area__desc {
+      font-size: $font18;
+      line-height: 1.7;
+      margin-top: 4rem;
+    }
+  }
+}
+
+.problem-list {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+  @include sp {
+    gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+
+  .problem-list-item {
+    background: $bg-white;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.15);
+    display: grid;
+    gap: 4.5%;
+    grid-template-columns: 22.7% auto;
+    padding: 2.4rem;
+
+    .problem-list-item__img {
+      text-align: center;
+    }
+
+    .problem-list-item__txtarea {
+      .problem-list-item__title {
+        color: $color-blue;
+        font-size: $font18;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      .problem-list-item__txt {
+        font-size: $font16;
+        line-height: 1.7;
+        margin-top: 0.8rem;
+      }
+    }
+  }
+}
+
+.reason-box {
+  display: grid;
+  gap: 5rem;
+  .reason-item {
+    align-items: center;
+    display: flex;
+    gap: 4.8rem;
+    @include sp {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    margin-bottom: 5rem;
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .reason-item__txtarea {
+      .reason-item__title {
+        font-size: $font28;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      .reason-item__txt {
+        font-size: $font16;
+        line-height: 1.7;
+        margin-top: 0.8rem;
+      }
+
+      .reason-item__list {
+        .reason-item__list-item {
+          align-items: center;
+          display: flex;
+          font-size: $font16;
+          justify-content: center;
+          line-height: 1.5;
+          position: relative;
+          &::before {
+            background-image: url(../../images/page/lp/icon-check.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            content: "";
+            height: 1.6rem;
+            width: 1.6rem;
+          }
+        }
+      }
+    }
+
+    .reason-item__img {
+      box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+.cv-area {
+  background: $color-blue;
+  border-radius: 2rem;
+  color: $color-white;
+  margin-block: 5rem;
+  padding-block: 6rem;
+  text-align: center;
+
+  h2 {
+    color: $color-white;
+    font-size: $font28;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-cv {
+    background: $color-yellow;
+    border-radius: 5rem;
+    color: $color-black;
+    display: inline-block;
+    font-size: $font20;
+    font-weight: 700;
+    margin-block: 3rem;
+    padding: 2rem 5rem;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .tel-box {
+    align-items: center;
+    display: flex;
+    gap: 3rem;
+    @include sp {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    justify-content: center;
+
+    .tel-num {
+      color: $color-white;
+      font-family: $Cabinet-grotesk;
+      font-size: $font36;
+      font-weight: 800;
+    }
+  }
+}
+
+
+
+
+
+.flow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  li {
+    background: $bg-gray;
+    border-radius: 1.5rem;
+    display: flex;
+    gap: 3rem;
+    @include sp {
+      flex-direction: column;
+    }
+    padding: 3rem;
+
+    .flow-num {
+      align-items: center;
+      background: $color-blue;
+      border-radius: 1rem;
+      color: $color-white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 100px;
+      padding: 1rem;
+
+      span:first-child {
+        font-size: 1.2rem;
+      }
+      span:last-child {
+        font-size: 2.4rem;
+        font-weight: 800;
+      }
+    }
+
+    .img-box {
+      flex-shrink: 0;
+      width: 200px;
+      img {
+        border-radius: 1rem;
+        width: 100%;
+      }
+    }
+
+    .txt-box {
+      h3 {
+        font-size: $font20;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      p {
+        font-size: $font14;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+// サービス内容セクション
+.service-list {
+  & > li {
+    background: $bg-white;
+    border: 1px solid #eee;
+    border-radius: 2rem;
+    @include sp {
+      padding: 2rem;
+    }
+    margin-bottom: 4rem;
+    padding: 4rem;
+  }
+}
+
+.service-item-main {
+  align-items: center;
+  display: flex;
+  gap: 3rem;
+  @include sp {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  margin-bottom: 3rem;
+
+  .num {
+    color: $color-blue;
+    font-size: 3.2rem;
+    font-weight: 800;
+    opacity: 0.3;
+  }
+
+  .icon {
+    align-items: center;
+    background: $color-light-blue;
+    border-radius: 50%;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    width: 80px;
+  }
+
+  .txt {
+    flex: 1;
+    h3 {
+      font-size: $font24;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: $font14;
+      line-height: 1.6;
+    }
+  }
+}
+
+.service-sub-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  @include sp {
+    grid-template-columns: 1fr;
+  }
+
+  li {
+    background: $bg-gray;
+    border-radius: 0.5rem;
+    font-size: $font14;
+    font-weight: 700;
+    padding: 1.5rem 2rem;
+    padding-left: 4rem;
+    position: relative;
+
+    &::before {
+      color: $color-blue;
+      content: "✓";
+      left: 1.5rem;
+      position: absolute;
+    }
+  }
+}
+
+.lp-container {
+  padding: 2rem;
+}

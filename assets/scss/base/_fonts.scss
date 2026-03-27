@@ -1,12 +1,12 @@
 // fonts
-$Noto-sans-jp: 'Noto Sans JP', sans-serif;
-$system: 'ヒラギノ角ゴシック', Hiragino Sans, Meiryo, sans-serif;
-$Cabinet-grotesk: 'Cabinet Grotesk', sans-serif;
-$Satoshi: 'Satoshi', sans-serif;
-$Verdana: 'Verdana', sans-serif;
+$Noto-sans-jp: "Noto Sans JP", sans-serif;
+$system: "ヒラギノ角ゴシック", Hiragino Sans, Meiryo, sans-serif;
+$Cabinet-grotesk: "Cabinet Grotesk", sans-serif;
+$Satoshi: "Satoshi", sans-serif;
+$Verdana: "Verdana", sans-serif;
 $Lato: "Lato", sans-serif;
-
 $font80: clamp(80px, calc(80vw / 15), 86px);
+$font42: clamp(20px, calc(42vw / 15), 42px);
 $font36: clamp(30px, calc(36vw / 15), 36px);
 $font28: clamp(20px, calc(28vw / 15), 28px);
 $font26: clamp(20px, calc(26vw / 15), 26px);

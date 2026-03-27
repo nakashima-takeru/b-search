@@ -1,21 +1,22 @@
 :root {
-  --trs-hover: 0.4s cubic-bezier(0.26, 0.16, 0.1, 1);
   --lts: 0.05em;
+  --trs-hover: 0.4s cubic-bezier(0.26, 0.16, 0.1, 1);
 }
 
 // colors
-$color-blue: #1A4DAA;
-$color-yellow: #FAEE56;
+$color-blue: #1a4daa;
+$color-aqua: #0a9fe6;
+$color-yellow: #faee56;
 $color-light-blue: #ebf2fa;
 $color-piction-blue: #4db8fa;
-$color-white: #ffffff;
+$color-white: #fff;
 $color-black: #000;
 $color-dark-gray: #474a4e;
 $color-darker-gray: #808080;
 $color-light-gray: #ababab;
-$color-gray: #cccccc;
+$color-gray: #ccc;
 $color-green: #60c200;
-$color-orange: #FF9900;
+$color-orange: #f90;
 $color-error: #bb101d;
 $bg-white: #fff;
 $bg-gray: #f5f5f5;
